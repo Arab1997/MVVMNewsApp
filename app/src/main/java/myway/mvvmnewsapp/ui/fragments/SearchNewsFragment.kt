@@ -55,6 +55,10 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
                 editable?.let {
                     if (editable.toString().isEmpty()){
                         viewModel.searchNews(editable.toString())
+//added
+                        if(isLastPage){
+                            rvBreakingNews.setPadding(0,0,0,0)
+                        }
                     }
                 }
             }
@@ -118,9 +122,9 @@ class SearchNewsFragment : Fragment(R.layout.fragment_search_news) {
             if (shouldPaginate) {
                 viewModel.searchNews(etSearch.text.toString())
                 isScrolling = false
-            } else {
+            }/* else {
                 rvSearchNews.setPadding(0, 0, 0, 0)   //may be error
-            }
+            }*/
         }
 
         //при изменении состояния прокрутки
